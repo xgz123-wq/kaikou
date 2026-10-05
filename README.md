@@ -16,6 +16,8 @@ New-Item -ItemType SymbolicLink -Path "$HOME\.agents\skills\kaikou" -Target "$PW
 New-Item -ItemType SymbolicLink -Path "$HOME\.claude\skills\kaikou" -Target "$HOME\.agents\skills\kaikou"
 ```
 
+New-Item 报「需要管理员权限」时,改用 `cmd /c mklink /J <链接路径> <目标路径>` 建目录联接,效果相同,不需要权限。
+
 老师和你的练习记录在同一个文件夹,用户目录只放链接。然后在这个文件夹里打开 Agent,说「我今天要讲一件事」。学生档案会自动建在那个文件夹的 `学生档案/` 下,是你的私人数据,不要跟老师一起上传。
 
 **只有项目目录的 Agent**
