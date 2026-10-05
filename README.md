@@ -8,19 +8,22 @@
 
 **Claude Code / Codex 等读 skills 目录的 Agent**
 
+在你想存练习记录的文件夹里执行(PowerShell;Git Bash 的 `ln -s` 对目录会复制而不是链接,不要用):
+
 ```
-git clone https://github.com/xgz123-wq/kaikou ~/.agents/skills/kaikou
-ln -s ~/.agents/skills/kaikou ~/.claude/skills/kaikou
+git clone https://github.com/xgz123-wq/kaikou .agents/skills/kaikou
+New-Item -ItemType SymbolicLink -Path "$HOME\.agents\skills\kaikou" -Target "$PWD\.agents\skills\kaikou"
+New-Item -ItemType SymbolicLink -Path "$HOME\.claude\skills\kaikou" -Target "$HOME\.agents\skills\kaikou"
 ```
 
-然后在你想存练习记录的文件夹里打开 Agent,说「我今天要讲一件事」。学生档案会自动建在那个文件夹的 `学生档案/` 下,是你的私人数据,不要跟老师一起上传。
+老师和你的练习记录在同一个文件夹,用户目录只放链接。然后在这个文件夹里打开 Agent,说「我今天要讲一件事」。学生档案会自动建在那个文件夹的 `学生档案/` 下,是你的私人数据,不要跟老师一起上传。
 
 **只有项目目录的 Agent**
 
-把本目录放进项目,根目录建 `AGENTS.md` 写一行:
+根目录建 `AGENTS.md` 写一行:
 
 ```
-先读 kaikou/SKILL.md,按它工作。
+先读 .agents/skills/kaikou/SKILL.md,按它工作。
 ```
 
 **没有文件系统的 Agent(豆包、网页聊天)**
